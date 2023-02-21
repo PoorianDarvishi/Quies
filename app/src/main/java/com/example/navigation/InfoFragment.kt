@@ -13,11 +13,11 @@ import com.example.navigation.databinding.FragmentInfoBinding
 
 class InfoFragment : Fragment(R.layout.fragment_info) {
     lateinit var binding : FragmentInfoBinding
-    val viewModel : InfoFragmentViewModel by activityViewModels()
-    val args : InfoFragmentArgs by navArgs()
+    private val viewModel : InfoFragmentViewModel by activityViewModels()
+    private val args : InfoFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = DataBindingUtil.bind(view)!!
+        binding = FragmentInfoBinding.bind(view)
         binding.apply {
             infoViewModel = viewModel
             lifecycleOwner = this@InfoFragment

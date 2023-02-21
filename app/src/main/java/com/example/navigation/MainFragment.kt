@@ -11,9 +11,11 @@ import com.example.navigation.databinding.FragmentMainBinding
 
 class MainFragment : Fragment(R.layout.fragment_main) {
     val viewModel : InfoFragmentViewModel by activityViewModels()
+    lateinit var binding: FragmentMainBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        DataBindingUtil.bind<FragmentMainBinding>(view)!!.apply {
+        binding = FragmentMainBinding.bind(view)
+        binding.apply {
             textViewSave.text = viewModel.save.value
             buttonInfo.setOnClickListener {
                 Navigation.findNavController(view).navigate(MainFragmentDirections.actionMainFragmentToInfoFragment(
